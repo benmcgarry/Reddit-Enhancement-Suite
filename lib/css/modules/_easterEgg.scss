@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex' as *;
 
 #baconBit {
 	position: fixed;
