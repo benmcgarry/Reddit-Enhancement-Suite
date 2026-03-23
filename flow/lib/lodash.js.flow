@@ -388,7 +388,7 @@ declare module 'lodash' {
 		assignWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
 		at(object?: ?Object, ...paths: Array<string>): Array<any>;
 		at(object?: ?Object, paths: Array<string>): Array<any>;
-		create<T>(prototype: T, properties?: Object): $Supertype<T>;
+		create<T>(prototype: T, properties?: Object): T;
 		defaults(object?: ?Object, ...sources?: Array<Object>): Object;
 		defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
 		findKey(object?: ?Object, predicate?: OPredicate<any>): string | void;
