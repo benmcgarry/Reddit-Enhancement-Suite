@@ -20,10 +20,5 @@
 [options]
 module.use_strict=true
 
-suppress_type=$FlowIssue
-suppress_type=$FlowIgnore
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
-suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
-
 [version]
 ^0.306.0
