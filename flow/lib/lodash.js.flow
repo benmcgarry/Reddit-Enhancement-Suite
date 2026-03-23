@@ -223,7 +223,7 @@ declare module 'lodash' {
 		map<V, T: Object, U>(object: ?T, iteratee?: OIterateeWithResult<V, T, U>): Array<U>;
 		map(str: ?string, iteratee?: (char: string, index: number, str: string) => any): string;
 		orderBy<T>(array: ?Array<T>, iteratees?: Array<Iteratee<T>>, orders?: Array<'asc' | 'desc'>): Array<T>;
-		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<*>>, orders?: Array<'asc' | 'desc'>): Array<V>;
+		orderBy<V, T: Object>(object: T, iteratees?: Array<OIteratee<any>>, orders?: Array<'asc' | 'desc'>): Array<V>;
 		partition<T>(array: ?Array<T>, predicate?: Predicate<T>): [T, T];
 		partition<V, T: Object>(object: T, predicate?: OPredicate<T>): [V, V];
 		reduce<T, U>(array: ?Array<T>, iteratee?: (accumulator: U, value: T, index: number, array: ?Array<T>) => U, accumulator?: U): U;
@@ -295,7 +295,7 @@ declare module 'lodash' {
 		wrap<T, R>(value: T, wrapper: (first: T, ...args: any) => R): (...args: any) => R;
 
 		// Lang
-		castArray(value: *): any[];
+		castArray(value: any): any[];
 		clone<T>(value: T): T;
 		cloneDeep<T>(value: T): T;
 		cloneDeepWith<T, U>(value: T, customizer?: ?(value: T, key: number | string, object: T, stack: any) => U): U;
@@ -360,14 +360,14 @@ declare module 'lodash' {
 		floor(number: number, precision?: number): number;
 		max<T>(array: ?Array<T>): T;
 		maxBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
-		mean(array: Array<*>): number;
+		mean(array: Array<any>): number;
 		meanBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
 		min<T>(array: ?Array<T>): T;
 		minBy<T>(array: ?Array<T>, iteratee?: Iteratee<T>): T;
 		multiply(multiplier: number, multiplicand: number): number;
 		round(number: number, precision?: number): number;
 		subtract(minuend: number, subtrahend: number): number;
-		sum(array: Array<*>): number;
+		sum(array: Array<any>): number;
 		sumBy<T>(array: Array<T>, iteratee?: Iteratee<T>): number;
 
 		// number
@@ -391,12 +391,12 @@ declare module 'lodash' {
 		create<T>(prototype: T, properties?: Object): $Supertype<T>;
 		defaults(object?: ?Object, ...sources?: Array<Object>): Object;
 		defaultsDeep(object?: ?Object, ...sources?: Array<Object>): Object;
-		findKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
-		findLastKey(object?: ?Object, predicate?: OPredicate<*>): string | void;
-		forIn(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forInRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forOwn(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		forOwnRight(object?: ?Object, iteratee?: OIteratee<*>): Object;
+		findKey(object?: ?Object, predicate?: OPredicate<any>): string | void;
+		findLastKey(object?: ?Object, predicate?: OPredicate<any>): string | void;
+		forIn(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forInRight(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forOwn(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		forOwnRight(object?: ?Object, iteratee?: OIteratee<any>): Object;
 		functions(object?: ?Object): Array<string>;
 		functionsIn(object?: ?Object): Array<string>;
 		get(object?: ?Object, path?: ?Array<string> | string, defaultValue?: any): any;
@@ -407,8 +407,8 @@ declare module 'lodash' {
 		invoke(object?: ?Object, path?: ?Array<string> | string, ...args?: Array<any>): any;
 		keys(object?: ?Object): Array<string>;
 		keysIn(object?: ?Object): Array<string>;
-		mapKeys(object?: ?Object, iteratee?: OIteratee<*>): Object;
-		mapValues(object?: ?Object, iteratee?: OIteratee<*>): Object;
+		mapKeys(object?: ?Object, iteratee?: OIteratee<any>): Object;
+		mapValues(object?: ?Object, iteratee?: OIteratee<any>): Object;
 		merge(object?: ?Object, ...sources?: Array<?Object>): Object;
 		mergeWith<T: Object, A: Object>(object: T, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A) => any | void): Object;
 		mergeWith<T: Object, A: Object, B: Object>(object: T, s1: A, s2: B, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B) => any | void): Object;
@@ -416,14 +416,14 @@ declare module 'lodash' {
 		mergeWith<T: Object, A: Object, B: Object, C: Object, D: Object>(object: T, s1: A, s2: B, s3: C, s4: D, customizer?: (objValue: any, srcValue: any, key: string, object: T, source: A | B | C | D) => any | void): Object;
 		omit(object?: ?Object, ...props: Array<string>): Object;
 		omit(object?: ?Object, props: Array<string>): Object;
-		omitBy(object?: ?Object, predicate?: OPredicate<*>): Object;
+		omitBy(object?: ?Object, predicate?: OPredicate<any>): Object;
 		pick(object?: ?Object, ...props: Array<string>): Object;
 		pick(object?: ?Object, props: Array<string>): Object;
-		pickBy(object?: ?Object, predicate?: OPredicate<*>): Object;
+		pickBy(object?: ?Object, predicate?: OPredicate<any>): Object;
 		result(object?: ?Object, path?: ?Array<string> | string, defaultValue?: any): any;
 		set(object?: ?Object, path?: ?Array<string> | string, value: any): Object;
 		setWith<T>(object: T, path?: ?Array<string> | string, value: any, customizer?: (nsValue: any, key: string, nsObject: T) => any): Object;
-		transform(collection: Object | Array<any>, iteratee?: OIteratee<*>, accumulator?: any): any;
+		transform(collection: Object | Array<any>, iteratee?: OIteratee<any>, accumulator?: any): any;
 		unset(object?: ?Object, path?: ?Array<string> | string): bool;
 		update(object: Object, path: string[] | string, updater: Function): Object;
 		updateWith(object: Object, path: string[] | string, updater: Function, customizer?: Function): Object;
@@ -505,7 +505,7 @@ declare module 'lodash' {
 		rangeRight(end: number, step?: number): Array<number>;
 		runInContext(context?: Object): Function;
 
-		stubArray(): Array<*>;
+		stubArray(): Array<any>;
 		stubFalse(): false;
 		stubObject(): {};
 		stubString(): '';
