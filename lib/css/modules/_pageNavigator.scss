@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex' as *;
 
 $thumb-width: 100px;
 $content-offsetleft: 54px; // icon width + margins

@@ -12,11 +12,12 @@ jobs:
   lint_flow:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
-        node-version: '22'
-    - run: yarn install --frozen-lockfile
+        node-version: '24'
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn flow check --show-all-errors
     - run: yarn eslint
@@ -26,11 +27,12 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
-        node-version: '22'
-    - run: yarn install --frozen-lockfile
+        node-version: '24'
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn build --browsers=all
 
@@ -50,11 +52,12 @@ jobs:
   windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
       with:
-        node-version: '22'
-    - run: yarn install --frozen-lockfile
+        node-version: '24'
+    - run: corepack enable
+    - run: yarn install --immutable
 
     - run: yarn test
     - run: yarn build --browsers=all

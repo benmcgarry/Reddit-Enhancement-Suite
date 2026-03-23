@@ -6,6 +6,7 @@
 // this is technically unsound (https://github.com/facebook/flow/issues/2221),
 // but the alternative is worse (having to type check every Object.entries/values call, even when the type is obvious)
 
+// $FlowFixMe[libdef-override]
 declare class Object {
 	static (o: ?void): {[any]: any};
 	static (o: boolean): Boolean; // eslint-disable-line flowtype/no-primitive-constructor-types
@@ -22,7 +23,7 @@ declare class Object {
 	static getOwnPropertyDescriptor<T>(o: any, p: any): PropertyDescriptor<T> | void;
 	static getOwnPropertyNames(o: any): Array<string>;
 	static getOwnPropertySymbols(o: any): Symbol[];
-	static getPrototypeOf: Object$GetPrototypeOf;
+	static getPrototypeOf(o: $NotNullOrVoid): any;
 	static is(a: any, b: any): boolean;
 	static isExtensible(o: any): boolean;
 	static isFrozen(o: any): boolean;

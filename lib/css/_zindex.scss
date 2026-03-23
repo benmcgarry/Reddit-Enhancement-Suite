@@ -1,10 +1,10 @@
 @use 'sass:math';
 
 @function _($i) {
-	$base: 10000000;
-	$increment: math.div($base, 100);
+  $base: 10000000;
+  $increment: math.div($base, 100);
 
-	@return $base + $i * $increment;
+  @return $base + $i * $increment;
 }
 
 $zindex-go-mode-panel:         _(1);

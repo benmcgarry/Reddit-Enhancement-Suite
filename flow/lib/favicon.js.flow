@@ -15,7 +15,7 @@ declare module 'favico.js' {
 
 	declare class Favico {
 		constructor(opts?: FavicoOptions): void;
-		badge(num: number, opts?: FavicoOptions | $PropertyType<FavicoOptions, 'animation'>): void;
+		badge(num: number, opts?: FavicoOptions | FavicoOptions['animation']): void;
 		image(image: HTMLImageElement): void;
 		video(video: HTMLVideoElement | 'stop'): void;
 		webcam(action?: 'stop'): void;

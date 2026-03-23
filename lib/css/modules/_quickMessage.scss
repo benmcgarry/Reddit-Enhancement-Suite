@@ -1,4 +1,4 @@
-@import '../zindex';
+@use '../zindex' as *;
 
 #quickMessage {
 	display: none;

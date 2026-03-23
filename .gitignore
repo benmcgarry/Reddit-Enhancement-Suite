@@ -4,6 +4,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+## Yarn Berry ##
+.yarn/cache
+.yarn/install-state.gz
+
 # Browser extensions and certs
 *.crx
 *.oex
